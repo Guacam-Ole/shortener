@@ -1,7 +1,7 @@
 #Simple Angular / PHP - Url Shortener
 
 ## License:
-CC-BY-NC 3.0
+CC-BY-NC 3.0 (the "NC" isn't very strict here. Just look into the [license-document](LICENSE) or contact me if you are unsure)
 
 ##Before you begin
 ###Origin
