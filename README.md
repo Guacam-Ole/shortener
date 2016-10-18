@@ -75,7 +75,7 @@ As you can see statistics for any address by adding "/stats" to it, you can also
 To see those just enter [yourdomain]/calculated/stats or [yourdomain]/custom/stats
 
 ##Spam protection
-This project uses a very simple JavaScript-Based Spam-protection. It is based on the thoughts of David Walsh, https://davidwalsh.name/wordpress-comment-spam (yes a popular journalist who does JavaScript. How awesome is that?) ;)
+This project uses a very simple JavaScript-Based Spam-protection. It is based on the thoughts of [David Walsh] (https://davidwalsh.name/wordpress-comment-spam) (yes a popular journalist who does JavaScript. How awesome is that?) ;)
 
 I used nearly the same technique on my wordpress-blogs and successfully blocked all spam. But be aware that while this is great to trick any Spam-*bot*, it can easily fail if someone decides to write a spam-mechanism especially for your site. 
 
