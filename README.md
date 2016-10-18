@@ -24,13 +24,13 @@ CREATE TABLE `calculated` (
   `expire` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `expire` (`expire`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+);
 
 CREATE TABLE `calculatedaccess` (
   `id` bigint(20) NOT NULL,
   `accessdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   KEY `idx_calc` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 CREATE TABLE `custom` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -41,13 +41,13 @@ CREATE TABLE `custom` (
   UNIQUE KEY `token` (`token`),
   KEY `expire` (`expire`),
   KEY `token_2` (`token`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='custom urls';
+) ;
 
 CREATE TABLE `customaccess` (
   `token` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `accessdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   KEY `idx_custom` (`token`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ;
 
 
 ALTER TABLE `calculatedaccess`
