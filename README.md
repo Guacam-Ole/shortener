@@ -73,6 +73,7 @@ You can see what this project does on "http://fade.at",
 As you can see statistics for any address by adding "/stats" to it, you can also see statistics about all custom or all calculated redirects.
 
 To see those just enter [yourdomain]/calculated/stats or [yourdomain]/custom/stats
+(It would possibly be a good idea to "block" those two custom domains by putting them into the "custom"-table without an expiry-date)
 
 ##Spam protection
 This project uses a very simple JavaScript-Based Spam-protection. It is based on the thoughts of [David Walsh] (https://davidwalsh.name/wordpress-comment-spam) (yes a popular journalist who does JavaScript. How awesome is that?) ;)
