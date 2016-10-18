@@ -1,1 +1,2 @@
-# ou.ya
+# shortener
+Simple Url Shortener
