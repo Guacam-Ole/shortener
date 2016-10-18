@@ -12,7 +12,7 @@ Because of license Issues (I don't own the rights to copy the artwork used) and 
 All Images have been removed. So you have to create your own Artwork if you want to have this fancy.
 
 ###Database
-Before you can begin, you have to create a Database and four Tables to store the data. The following Snippet creates thos tables:
+Before you can begin, you have to create a Database and four Tables to store the data. The following Snippet creates those tables:
 **Important** If you decide to create the tables manually, make sure to use a collation for the "token" columns that are *Case-Sensitive*. 
 
 ###SQL-Creation-Script:
