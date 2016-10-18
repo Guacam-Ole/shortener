@@ -1,0 +1,18 @@
+RewriteEngine on
+#RewriteBase /ouya/
+RewriteBase /ou.ya/
+
+
+
+
+# skip all files and directories from rewrite rules below
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+RewriteRule ^([0-9a-zA-Z]+)/stats/([0-9a-zA-Z/]+)/?$ ./stats.html?token=$1&param=$2 [L]
+RewriteRule ^([0-9a-zA-Z]+)/([0-9a-zA-Z]+)/([0-9a-zA-Z/]+)/?$ ./php/redirect.php?token=$1&action=$2&param=$3 [L]
+RewriteRule ^([0-9a-zA-Z]+)/stats/?$ ./stats.html?token=$1 [L]
+RewriteRule ^([0-9a-zA-Z]+)/([0-9a-zA-Z]+)/?$ ./php/redirect.php?token=$1&action=$2 [L]
+RewriteRule ^([0-9a-zA-Z]+)/?$ ./php/redirect.php?token=$1 [L]
+

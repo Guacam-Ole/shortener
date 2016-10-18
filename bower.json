@@ -1,0 +1,24 @@
+{
+  "name": "ou.ya",
+  "homepage": "https://github.com/OleAlbers/ou.ya",
+  "authors": [
+    "Ole <ole@nocarrier.de>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.1.1",
+    "angular-clipboard": "^1.5.0",
+    "angular-translate": "^2.12.1",
+    "angular-translate-loader-url": "^2.12.1",
+    "angular-translate-loader-static-files": "^2.12.1"
+  }
+}

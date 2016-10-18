@@ -1,0 +1,47 @@
+{
+  "Title":"HURZ.ME - URL-Shortener ohne Werbung oder Tracking ",
+  "Slogan":"Der <b>Werbefreie</b><br/>URL-Shortener mit Ablaufdatum",
+  "Congrats":"Glückwunsch. Deine neue Url ist:",
+  "CopiedToClipboard":"In die Zwischenablage kopiert",
+  "Copy":"Kopieren",
+  "TargetUrl":"Ziel-URL",
+  "ErrorUrlInvalid":"Bitte eine gültige Adresse (\"http://...\") eingeben",
+  "ErrorUrlRequired":"Schreib was!",
+
+  "UseCustomUrl":"Individuelle Url verwenden",
+  "CustomUrl":"Individuelle Url",
+  "CustomUrlPlaceholder":"Gib eine beliebige Zahlen/Buchstabenkombination ein",
+
+  "ErrorShortCharacters":"Gib mindestens fünf Zeichen ein",
+  "ErrorShortLetters":"Nur Zahlen und Buchstaben, bitte!",
+  "ErrorShortRequired":"Gib was ein",
+  "ErrorShortInUse":"Das ist leider schon in Verwendung",
+  "OkShort":"Sieht gut aus",
+
+  "ExpirationTitle":"Ablaufdatum",
+  "ExpirationDays":"Tage",
+  "ExpirationHours":"Stunden",
+  "ExpirationMinutes":"Minuten",
+
+  "Create":"Erstellen",
+  "NewUrl":"Eigene Url erstellen",
+
+  "ExpirationSwitchOff":"Kein Ablaufdatum",
+  "ExpirationSwitchOn":"Url ist gültig für",
+  "CustomUrlSwitchOff":"Deaktiviert",
+  "CustomUrlSwitchOn":"Aktiviert",
+
+  "ExpirationText":"_DAYS_ Tage, _HOURS_ Stunden und _MINUTES_ Minuten",
+
+  "Host":"hurz.me",
+  "Image":"hurz.png",
+
+  "Imprint":"Impressum",
+  "ImprintUrl":"impressum.html",
+  "FaqUrl":"faqde.html",
+  "FourOhFour":"Diese URL ist abgelaufen<br/>(oder hat nie existiert)",
+  "Four0hFourTitle":"Er ist tot, Jim",
+  "Stats":"Statistiken für",
+  "StatsInfo":"Zugriffsstatistiken:",
+  "NoData":"Sieht so aus, als hätte noch niemand diese Adresse aufgerufen."
+}

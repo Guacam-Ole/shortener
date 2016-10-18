@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="OuYaApp">
+<head>
+
+    <base href="/">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title translate="{{'Title'}}">Ad-free, expiring Url-shortener</title>
+    <meta name="description" content="fade.at / hurz.to is an expiring url-shortener">
+    <meta name="author" content="Ole Albers">
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
+    <!-- Le styles -->
+    <link href="css/style.css?v=1" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script src="js/rotate.js"></script>
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./bower_components/angular-material/angular-material.js"></script>
+    <script src="./bower_components/angular-clipboard/angular-clipboard.js"></script>
+    <script src="./bower_components/angular-translate/angular-translate.min.js"></script>
+    <script src="./bower_components/angular-translate-loader-url/angular-translate-loader-url.min.js"></script>
+    <script src="./bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+    <script src="./bower_components/chart.js/Chart.bundle.min.js"></script>
+    <script src="./bower_components/angular-chart.js/angular-chart.min.js"></script>
+
+    <script src="./js/app.js"></script>
+
+</head>
+
+<body style="background: white">
+
+<div id="loading"></div>
+
+
+<div class="backgroundWhite" ng-controller="StatsController" ng-init="Init()">
+    <div class="wrapper">
+        <div class="onTop"><span>{{ "Stats" | translate}}</span> http://{{myHost}}/{{token}}:</div>
+        <div ng-show="noData">
+            {{ "NoData" | translate}}
+        </div>
+        <canvas ng-hide="noData" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-options="chartOptions" >
+        </canvas>
+        <footer class="black">
+            <a href="{{ 'ImprintUrl' |translate }}" target="_blank">{{ "Imprint" |translate}}</a><a target="_blank" href="{{ 'FaqUrl' | translate}}" target="_blank">FAQ</a>
+        </footer>
+    </div>
+</div>
+</body>
+</html>

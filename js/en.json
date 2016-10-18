@@ -1,0 +1,47 @@
+{
+  "Title":"FADE.AT - URL-Shortening without ads or tracking ",
+  "Slogan":"The <b>ad-free</b>, expiring<br/>URL-shortener",
+  "Congrats":"Congrats. Your new short Url is:",
+  "CopiedToClipboard":"Copied to clipboard",
+  "Copy":"Copy",
+  "TargetUrl":"Target URL",
+  "ErrorUrlInvalid":"Please enter a valid url (\"http://...\")",
+  "ErrorUrlRequired":"Enter something here",
+
+  "UseCustomUrl":"Use custom Url",
+  "CustomUrl":"Custom Url",
+  "CustomUrlPlaceholder":"Enter any letter/number - combination",
+
+  "ErrorShortCharacters":"Enter at least five characters",
+  "ErrorShortLetters":"Letters and numbers only!",
+  "ErrorShortRequired":"Enter something",
+  "ErrorShortInUse":"This combination is already in Use",
+  "OkShort":"Looks ok to me",
+
+  "ExpirationTitle":"Expiration",
+  "ExpirationDays":"Days",
+  "ExpirationHours":"Hours",
+  "ExpirationMinutes":"Minutes",
+
+  "Create":"Create",
+  "NewUrl":"Create your own",
+
+  "ExpirationSwitchOff":"No expiration",
+  "ExpirationSwitchOn":"Url will expire in",
+  "CustomUrlSwitchOff":"Disabled",
+  "CustomUrlSwitchOn":"Enabled",
+
+  "ExpirationText":"_DAYS_ days, _HOURS_ hours and _MINUTES_ minutes",
+  "Host":"fade.at",
+  "Image":"fade.png",
+
+  "Imprint":"Imprint",
+  "ImprintUrl":"impressum.html",
+  "FaqUrl":"faqen.html",
+  "FourOhFour":"Looks like this URL expired<br/>(or never existed)",
+  "Four0hFourTitle":"He's dead, Jim",
+  "Stats":"Statistics for",
+  "StatsInfo":"Access logs:",
+  "NoData":"Looks like nobody ever visited that address."
+
+}
