@@ -62,9 +62,20 @@ Some Explanation:
 In [custom] all custom tokens (5 characters or more) are saved, [calculated] stores all calculated redirects. The [*access] - tables store all external access to the url.
 
 ###Configuration
-Just add a "custom.php" into the php-folder containing the following config:
+Just add a "connect.php" into the php-folder containing the following contents:
+````
+<?php
+function Connect() {
+        $dbHost="localhost";
+        $dbName="myDatabase";
+        $dbUser="username";
+        $dbPass="p@ssw0rd";
 
-(todo)
+        return new PDO('mysql:host='.$dbHost.';dbname='.$dbName, $dbUser, $dbPass);
+    }
+?>
+````
+
 
 ##Watch the Project in Action
 You can see what this project does on "http://fade.at",
