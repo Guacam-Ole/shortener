@@ -37,4 +37,4 @@ Nope. Don't do anything illegal or racist. Your adress might be deleted otherwis
 we know that. Response design is on our wish-list :)
 
 ##I have more questions
-Contact me at Google+
+Contact me at [Google+](https://plus.google.com/+OleAlbers)
