@@ -37,5 +37,5 @@ Die Datenverarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der 
 Weitere Informationen zu Google reCAPTCHA sowie die Datenschutzerklärung von Google entnehmen Sie folgenden Links: https://www.google.com/intl/de/policies/privacy/ und https://www.google.com/recaptcha/intro/android.html.
 
 #### Andere Daten
-Sonst sammeln wir bewusst nix. Keine IP-Adressen, etc. Da das die Kernphilosophie von Hurz.me/Fade.at ist haben wir da schon lange ein eigenes Kapitel zu:  
+Sonst sammeln wir bewusst nix. Keine IP-Adressen, etc. Da das die Kernphilosophie von Hurz.me/Fade.at ist steht das auch schon lange in der FAQ.
 
