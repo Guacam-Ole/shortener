@@ -1,6 +1,6 @@
 If you wonder what this is about: If I don't have this, i could be sued. Stupid german laws made for lawyers. Just ignore it.
 
-# Impressum, Disclaimer
+# Impressum, Disclaimer, Datenschutz
 
 Angaben gemäß § 5 TMG:
 Ole Albers
