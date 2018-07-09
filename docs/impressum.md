@@ -1,4 +1,4 @@
-If you wonder what this is about: If I don't have this, i could be sued. Stupid german laws made for lawyers. Just ignore it.
+If you wonder what this is about: If I don't have this, i could be sued. Just ignore it.
 
 # Impressum, Disclaimer, Datenschutz
 
