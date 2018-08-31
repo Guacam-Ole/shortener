@@ -1,21 +1,27 @@
 #Simple Angular / PHP - Url Shortener
 
 ## License:
+
 CC-BY-NC 3.0 (the "NC" isn't very strict here. Just look into the [license-document](LICENSE) or contact me if you are unsure)
 
 ##Before you begin
+
 ###Origin
+
 This is the public copy of the url shortener used for Hurz.Me / Fade.At
 Because of license Issues (I don't own the rights to copy the artwork used) and security issues some things have been removed:
 
 ###Missing Contents
+
 All Images have been removed. So you have to create your own Artwork if you want to have this fancy.
 
 ###Database
+
 Before you can begin, you have to create a Database and four Tables to store the data. The following Snippet creates those tables:
 **Important** If you decide to create the tables manually, make sure to use a collation for the "token" columns that are *Case-Sensitive*. 
 
-###SQL-Creation-Script:
+###SQL-Creation-Script
+
 ````SQL
 
 CREATE TABLE `calculated` (
