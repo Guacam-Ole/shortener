@@ -1,27 +1,21 @@
-#Simple Angular / PHP - Url Shortener
+# Simple Angular / PHP - Url Shortener
 
 ## License:
-
 CC-BY-NC 3.0 (the "NC" isn't very strict here. Just look into the [license-document](LICENSE) or contact me if you are unsure)
 
-##Before you begin
-
-###Origin
-
+## Before you begin
+### Origin
 This is the public copy of the url shortener used for Hurz.Me / Fade.At
 Because of license Issues (I don't own the rights to copy the artwork used) and security issues some things have been removed:
 
-###Missing Contents
-
+### Missing Contents
 All Images have been removed. So you have to create your own Artwork if you want to have this fancy.
 
-###Database
-
+### Database
 Before you can begin, you have to create a Database and four Tables to store the data. The following Snippet creates those tables:
 **Important** If you decide to create the tables manually, make sure to use a collation for the "token" columns that are *Case-Sensitive*. 
 
-###SQL-Creation-Script
-
+### SQL-Creation-Script
 ````SQL
 
 CREATE TABLE `calculated` (
@@ -67,7 +61,7 @@ ALTER TABLE `customaccess`
 Some Explanation:
 In [custom] all custom tokens (5 characters or more) are saved, [calculated] stores all calculated redirects. The [*access] - tables store all external access to the url.
 
-###Configuration
+### Configuration
 Just add a "connect.php" into the php-folder containing the following contents:
 ````
 <?php
@@ -83,16 +77,16 @@ function Connect() {
 ````
 
 
-##Watch the Project in Action
+## Watch the Project in Action
 You can see what this project does on "http://fade.at",
 
-##Additional Stats
+## Additional Stats
 As you can see statistics for any address by adding "/stats" to it, you can also see statistics about all custom or all calculated redirects.
 
 To see those just enter [yourdomain]/calculated/stats or [yourdomain]/custom/stats
 (It would possibly be a good idea to "block" those two custom domains by putting them into the "custom"-table without an expiry-date)
 
-##Spam protection
+## Spam protection
 This project uses a very simple JavaScript-Based Spam-protection. It is based on the thoughts of [David Walsh] (https://davidwalsh.name/wordpress-comment-spam) (yes a popular journalist who does JavaScript. How awesome is that?) ;)
 
 I used nearly the same technique on my wordpress-blogs and successfully blocked all spam. But be aware that while this is great to trick any Spam-*bot*, it can easily fail if someone decides to write a spam-mechanism especially for your site. 
