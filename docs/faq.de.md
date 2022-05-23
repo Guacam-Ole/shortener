@@ -38,4 +38,4 @@ Nein. Verlinke nix verbotenes, nix rassistisches und nix diskrimierendes. Nur we
 Wir garantieren aber nicht, dass wir das genauso sehen. Auch geben wir natürlich keine Garantie, dass Dein Link bleibt. Der kann raus fliegen, weil der Inhalt aus obigen Gründen nicht passt, weil der Server abgeraucht ist, oder weil der Programmierer Mist gebaut hat :)
 
 ## Ich habe weitere Fragen
-Kontaktiere mich bei [Twitter](https://twitter.com/stammtischphilo)
+Kontaktiere mich auf [Mastodon](https://chaos.social/web/@Stammtischphilosoph)
