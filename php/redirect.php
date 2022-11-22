@@ -48,6 +48,11 @@
         AddCountCustom($pdo, $token);
     }
 
+    if (IsEvilUrl($target, false)) {
+        header("Location: https://github.com/OleAlbers/shortener/blob/master/docs/evil.de.md", true, 301);
+        die();
+    }
+
     if ($expire===NULL) {
         header("Location:".$target, true, 301);
     } else {

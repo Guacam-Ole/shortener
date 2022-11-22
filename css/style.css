@@ -396,3 +396,7 @@ footer.black a {
         top: 50px;
     }
 }
+
+footer.black.stats {
+    top:1440px;
+}

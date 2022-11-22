@@ -4,9 +4,31 @@
 
     require('helper.php');
     require('db.php');
+    require('recaptcha.php');
+
+
 
     $postdata = file_get_contents("php://input");
     $request = json_decode($postdata);
+
+    $pdo = Connect();
+
+    $needsCaptcha=true;
+    if (isset($request->key)) {
+        $oldCount=GetCount($pdo, $request->key, $request->name);
+        if ($oldCount<0) Error( $oldCount."Limit reached");
+        $needsCaptcha=false;
+        Increment($pdo, $request->key, $request->name);
+    }
+
+    if ($needsCaptcha) {
+       if (!isset($request->captcha)) {
+            Error("You are a bot", false, true);
+        }
+        if (!CheckCaptcha($request->captcha)) {
+            Error("You are a bot",true);
+        }
+    }
 
     if ($request->debug) {
         print_r($request);
@@ -18,7 +40,8 @@
 
     if (!$first || $second) {
         Error("I hate spammers",false);
-    }
+        die(); 
+   }
 
     if (!isset($request) || !isset($request->target) || !isset($request->checks) || !isset($request->token) || !isset($request->expiration)) {
         die();
@@ -45,6 +68,9 @@
         die('Not a valid URL');
     }
 
+if (strpos($target, 'pp.') !== false) {
+  die ('we dont like phishing. asshole');
+}
 
     if ($token->enabled) {
         if (!$expiration->enabled || !isset($expiration->days) || !isset($expiration->hours) || !isset($expiration->minutes)) {
@@ -60,12 +86,13 @@
     }
 
 
-    $pdo = Connect();
+   
 
     if (!$expiration->enabled) {
         // Infinite insert
         $insertQuery=$pdo->prepare("INSERT INTO calculated (target) VALUES (:target)");
-    } else {
+   
+ } else {
         // Expiration
         $now = new DateTime();
 
@@ -91,7 +118,7 @@
             $insertQuery->bindParam(':expire',$expireStr);
             $insertQuery->bindParam(':token',$token->value);
         } else {
-           $insertQuery=$pdo->prepare("INSERT INTO calculated (target, expire) VALUES (:target, :expire)");
+            $insertQuery=$pdo->prepare("INSERT INTO calculated (target, expire) VALUES (:target, :expire)");
             $insertQuery->bindParam(':expire',$expireStr);
         }
     }
@@ -107,5 +134,4 @@
             Success("Saved",EncodeUrl($newId));
         }
     }
-
 ?>

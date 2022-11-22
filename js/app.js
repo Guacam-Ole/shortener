@@ -37,13 +37,41 @@ ouyaApp.controller('StatsController', ['$scope', '$http', '$translate',  functio
         $http.get('./php/stats.php?token='+token)
             .then(
                 function(response){
-                    $scope.data=[];
-                    $scope.labels=[];
-                    response.data.forEach(function(entry) {
-                        $scope.noData=false;
-                        $scope.labels.push(entry.year+"-"+entry.month+"-"+entry.day);
-                        $scope.data.push(entry.count);
-                    })
+                    $scope.data={
+
+                        days: {
+                            data: [],
+                            labels: []
+                        },
+                        months: {
+                            data: [],
+                            labels: []
+                        },
+                        years: {
+                            data: [],
+                            labels: []
+                        }
+                    };
+
+                    if (response.data.url) {
+                     $scope.data.url=response.data.url.target
+                    }
+
+                    response.data.days.forEach(function(entry) {
+                        $scope.data.days.noData=false;
+                        $scope.data.days.labels.push(entry.year+"-"+entry.month+"-"+entry.day);
+                        $scope.data.days.data.push(entry.count);
+                    });
+                    response.data.months.forEach(function(entry) {
+                        $scope.data.months.noData=false;
+                        $scope.data.months.labels.push(entry.year+"-"+entry.month);
+                        $scope.data.months.data.push(entry.count);
+                    });
+                    response.data.years.forEach(function(entry) {
+                        $scope.data.years.noData=false;
+                        $scope.data.years.labels.push(entry.year);
+                        $scope.data.years.data.push(entry.count);
+                    });
                 }
             );
     };
@@ -89,6 +117,9 @@ ouyaApp.controller('MainController', ['$scope', '$http', '$translate', function(
     $scope.expirationText=[];
     $scope.customUrlText=[];
     $scope.target={value:""};
+    $scope.targets={value:"e"};
+    $scope.username={value:"egal"};
+    $scope.key={value:"unkonw"};
 
     $scope.responseUrl= {
         Short:'dbddhkp',
@@ -162,7 +193,60 @@ ouyaApp.controller('MainController', ['$scope', '$http', '$translate', function(
             );
     };
 
+    $scope.SetResponse=function(response) {
+        $scope.captchaResponse=response;
+        $scope.$apply();
+    }
+
+    $scope.AddShortUrlsBulk=function() {
+        $scope.stillPosting=true;
+        $scope.customCount=undefined;
+        $scope.shortUrlPhpError=undefined;
+        $scope.checks.first=true;
+
+        var lines=$scope.targets.value.split("\n");
+
+
+        lines.forEach(element => {
+            if (element.length>0 && element.startsWith("http")) {
+                $http.post('./php/addurl.php',
+                {
+                    token:$scope.customUrl,
+                    checks:$scope.checks,
+                    target: { value:element },
+                    expiration: $scope.expiration,                    
+                    debug:false,
+                    name:$scope.username.value,
+                    key:$scope.key.value
+                })
+                .then(
+                    function(response){
+                        $scope.stillPosting=false;
+                        $scope.saveSuccess=response.data.success;
+                        if (!response.data.success) {
+                            if (response.data.isinuse) {
+                                $scope.saveError=$scope.ErrorIsInUseText;
+                            } else {
+                                $scope.saveError = response.data.error;
+                            }
+                        } else {
+                            $scope.targets.value=$scope.targets.value.replace(element,"https://hurz.me/"+response.data.url);
+                        }
+                    },
+                    function(response){
+                        $scope.stillPosting=false;
+                        $scope.saveError=response.data.error;
+                    }
+                );
+            }
+            
+        });
+
+        
+    }
+
     $scope.AddShortUrl=function () {
+        $scope.stillPosting=true;
         $scope.customCount=undefined;
         $scope.shortUrlPhpError=undefined;
         $scope.checks.first=true;
@@ -173,10 +257,13 @@ ouyaApp.controller('MainController', ['$scope', '$http', '$translate', function(
                 checks:$scope.checks,
                 target:$scope.target,
                 expiration: $scope.expiration,
+                captcha: $scope.captchaResponse,
                 debug:false
             } )
             .then(
+
                 function(response){
+                    $scope.stillPosting=false;
                     $scope.saveSuccess=response.data.success;
                     if (!response.data.success) {
                         if (response.data.isinuse) {
@@ -189,6 +276,7 @@ ouyaApp.controller('MainController', ['$scope', '$http', '$translate', function(
                     }
                 },
                 function(response){
+                    $scope.stillPosting=false;
                     $scope.saveError=response.data.error;
                 }
             );
@@ -202,6 +290,12 @@ ouyaApp.controller('MainController', ['$scope', '$http', '$translate', function(
         $scope.LoadTranslations();
     }
 }]);
+
+function recaptchaCallback(response) {
+
+    angular.element(document.getElementById('hurzMain')).scope().SetResponse(response);
+
+  }
 
 function gup( name, url ) {
     if (!url) url = location.href;

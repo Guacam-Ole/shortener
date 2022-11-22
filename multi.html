@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="OuYaApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title translate="{{'Title'}}">Ad-free, expiring Url-shortener</title>
+    <meta name="description" content="fade.at / hurz.me is an expiring url-shortener">
+    <meta name="author" content="Ole Albers">
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
+    <!-- Le styles -->
+    <link href="css/style.css?v=1.2" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Javascript -->
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script src="js/rotate.js"></script>
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./bower_components/angular-material/angular-material.js"></script>
+    <script src="./bower_components/angular-clipboard/angular-clipboard.js"></script>
+    <script src="./bower_components/angular-translate/angular-translate.min.js"></script>
+    <script src="./bower_components/angular-translate-loader-url/angular-translate-loader-url.min.js"></script>
+    <script src="./bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+    <script src="./bower_components/chart.js/Chart.bundle.min.js"></script>
+    <script src="./bower_components/angular-chart.js/angular-chart.min.js"></script>
+
+
+    <script src="./js/app.js?v=1.2"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+
+<body>
+
+<div id="loading"></div>
+
+
+<div class="background" ng-controller="MainController" id="hurzMain">
+    <div class="wrapper">
+        <div class="monster"><img src="images/monster.png" alt=""></div>
+
+        <div class="bubble">
+            <a href="/"><img src="images/{{'Image'|translate}}"></a>
+            <p translate="{{'Slogan'}}"></p>
+        </div>
+
+        <div class="rightFromMonster">
+            <div class="showUrl" ng-if="responseUrl.Short">
+                <p>{{"Congrats" | translate}}</p>
+                <span class="muchobiggoprefix muchobiggo">http://{{"Host"|translate}}/</span><span class="muchobiggo">{{responseUrl.Short}} </span>
+                <div class="success" ng-show="copySuccess">{{"CopiedToClipboard"|translate}}</div>
+
+                <md-button class="buttonCopy md-primary md-raised" on-copied="Copied()" text="responseUrl.Full()"
+                           clipboard>{{"Copy"|translate}}
+                </md-button>
+                <div class="statsUrl">
+                    <span>{{ "StatsInfo" |translate}}</span><br/>
+                    <a href="http://{{myHost}}/{{responseUrl.Short}}/stats">http://{{myHost}}/{{responseUrl.Short}}/stats</a>
+
+                </div>
+            </div>
+            <form name="shortForm" ng-if="!responseUrl.Short">
+                <md-content layout-padding="">
+                    <div>
+                        <div layout-gt-xs="row">
+                                <md-input-container class="md-block" flex-gt-xs>
+                                        <label>{{"Username"|translate}}</label>
+                                        <input name="username" ng-model="username.value" required="required" />                                                                        
+                                    </md-input-container>
+                        </div>
+                        <div layout-gt-xs="row">
+                                <md-input-container class="md-block" flex-gt-xs>
+                                        <label>{{"key"|translate}}</label>
+                                        <input name="key" ng-model="key.value" required="required" />                                                                        
+                                    </md-input-container>
+                        </div>
+                        <div layout-gt-xs="row">
+                            <md-input-container class="md-block" flex-gt-xs>
+                                <label>{{"TargetUrls"|translate}}</label>
+                                <textarea name="targets" ng-model="targets.value" required="required" rows="30"></textarea>                                
+                                <div role="alert">                                   
+                                    <div class="error" ng-show="shortForm.target.$error.required">
+                                        {{ErrorUrlRequired|translate}}
+                                    </div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                  
+                      
+                     
+                        <md-button class="buttonRight md-primary md-raised" ng-click="AddShortUrlsBulk()"
+                                   ng-disabled="(shortForm.$invalid  || stillPosting )">{{"Create"|translate}}
+                        </md-button>
+                        <div class="saveError" ng-show="saveError">
+                            <div class="error">{{saveError}}</div>
+                        </div>
+                        
+                    </div>
+                </md-content>
+            </form>
+
+            <div class="social">
+
+
+            </div>
+
+
+
+        </div>
+        <footer>
+            <a href="{{ 'ImprintUrl' |translate }}" target="_blank">{{ "Imprint" |translate}}</a>
+            <a href="{{ 'FaqUrl' | translate}}" target="_blank">{{ "FAQ" |translate}}</a>
+            <a href="{{ 'FlagUrl' | translate}}" target="_blank"> {{ "Flag" | translate}}
+        </footer>
+    </div>
+</div>
+</body>
+</html>

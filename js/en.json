@@ -36,10 +36,14 @@
   "Image":"fade.png",
 
   "Imprint":"Imprint",
-  "ImprintUrl":"impressum.html",
-  "FaqUrl":"faqen.html",
+  "FAQ":"FAQ / Terms & Conditions",
+  "Flag":"Flag an Url",
+  "FlagUrl":"https://github.com/OleAlbers/shortener/issues/new?title=there%20is%20something%20wrong&body=If%20you%20noticed%20a%20site%20that%20shouldn%27t%20be%20here%20(e.g.%20a%20phishing%20site)%20feel%20free%20to%20tell%20us.%20Just%20enter%20the%20SHORT-URL%20(not%20the%20target%20url)%20below%20here%20and%20we%20will%20have%20a%20look%20at%20it.%0A%0APlease%20note%20that%20there%20are%20no%20bots%20here%2C%20but%20humans.%20So%20it%20might%20take%20a%20while%20until%20we%20can%20have%20a%20look%20at%20it.%20We%20even%20might%20simply%20close%20this%20issue%20if%20we%20disagree%20without%20further%20comments.",
+  "ImprintUrl":"https://github.com/OleAlbers/shortener/blob/master/docs/impressum.md",
+  "FaqUrl":"https://github.com/OleAlbers/shortener/blob/master/docs/faq.de.md", 
   "FourOhFour":"Looks like this URL expired<br/>(or never existed)",
-  "Four0hFourTitle":"He's dead, Jim",
+  "EvilUrl":"https://github.com/OleAlbers/shortener/blob/master/docs/evil.en.md",
+  "FourOhFourTitle":"He's dead, Jim",
   "Stats":"Statistics for",
   "StatsInfo":"Access logs:",
   "NoData":"Looks like nobody ever visited that address."

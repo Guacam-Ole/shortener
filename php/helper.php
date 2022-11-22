@@ -7,14 +7,16 @@ ini_set('display_errors', 1);
         echo '{ "success": true, "value":"'.$data.'", "url":"'.$url.'"}';
     }
 
-    function Error($error, $isinUse=false) {
-            die ('{ "success": false, "error":"'.$error.'", "isinuse":"'.$isinUse.'"}');
+    function Error($error, $isinUse=false, $isbot=false) {
+            die ('{ "success": false, "error":"'.$error.'", "isinuse":"'.$isinUse.'", "isbot":"'.$isbot.'"}');
     }
 
  /* ShortUrl (geklaut bei SO) */
 
-    $alphabet = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNPPQRSTUVWXYZ';
+    $alphabet = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $base = strlen($alphabet);
+
+    
 
 
     function EncodeUrl($num) {
@@ -36,6 +38,44 @@ ini_set('display_errors', 1);
             $num = $num * $base + strpos($alphabet,$str[$i]);
         }
         return $num;
+    }
+
+    function IsEvilUrl($tsturl, $test) {
+        $key="<ENTER YOUR KEY HERE>"; 
+    
+        $url = 'https://safebrowsing.googleapis.com/v4/threatMatches:find?key='.$key;
+        $data = array(
+            'client' => array('clientId'=> 'oles non-existing company', 'clientVersion'=>'0.1'), 
+            'threatInfo' => array(
+                'threatTypes'=>array('MALWARE', 'SOCIAL_ENGINEERING','UNWANTED_SOFTWARE'),
+                'platformTypes'=> array('ANY_PLATFORM','ALL_PLATFORMS', 'ANDROID','WINDOWS','IOS','OSX','LINUX'),
+                'threatEntryTypes'=> array('URL'),
+                'threatEntries' => array('url'=>$tsturl)        
+            ),
+        );
+        $data_json=json_encode($data);
+        $ch=curl_init();
+    
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response  = curl_exec($ch);
+        curl_close($ch);
+    
+        if ($test) {
+            echo $response;
+        }
+           
+        if (strpos($response, 'matches')!==false) {
+           // die ("evil");
+            return true;
+
+        } else {
+            //die ("oki");
+            return false;
+        }
     }
 
     function CheckUrl($url) {

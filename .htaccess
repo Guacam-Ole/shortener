@@ -1,6 +1,6 @@
 RewriteEngine on
-#RewriteBase /ouya/
-RewriteBase /ou.ya/
+RewriteBase /
+#RewriteBase ./ou.ya/
 
 
 
